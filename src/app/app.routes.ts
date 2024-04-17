@@ -7,6 +7,15 @@ import { ProductViewComponent } from './pages/product-view/product-view.componen
 import { CartComponent } from './pages/cart/cart.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
+function auth() {
+  if (localStorage.getItem('user')) {
+    return true;
+  } else {
+    window.location.href = '/login';
+  }
+  return false;
+}
+
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -15,6 +24,6 @@ export const routes: Routes = [
   { path: 'product', component: ProductComponent },
   { path: 'product-view', component: ProductViewComponent },
   { path: 'cart', component: CartComponent },
-  {path: 'profile', component: ProfileComponent},
-  { path: '**', redirectTo: 'home', pathMatch: 'full' }
+  { path: 'profile', component: ProfileComponent, canActivate: [auth] },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
