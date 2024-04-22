@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { CartService } from '../../cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -11,9 +12,9 @@ import { CartService } from '../../cart.service';
 })
 export class CartComponent {
   cartItems = this.cartService.getItems();
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
-  ngOnInit() : void {
+  ngOnInit(): void {
     this.cartItems = this.cartService.getItems();
     // this.cartService.cartItems$.subscribe((items) => {
     //   this.cartItems = items;
@@ -31,7 +32,6 @@ export class CartComponent {
   }
 
   checkout() {
-    // Implement your checkout logic here
+    this.router.navigate(['/payment']);
   }
-  
 }

@@ -18,7 +18,7 @@ export class ProductViewComponent implements OnInit {
   constructor(
     private productService: ProductServiceService,
     private cartService: CartService,
-    private router: Router,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.productService.currentData.subscribe((data) => (this.data = data));
@@ -29,9 +29,20 @@ export class ProductViewComponent implements OnInit {
       price: item.price,
       flavor: item.flavor,
       quantity: 1,
-    }
+    };
     this.cartService.addItem(newItem);
     // send to cart page
     this.router.navigate(['/cart']);
+  }
+  buyNow(item: any) {
+    const newItem = {
+      name: item.name,
+      price: item.price,
+      flavor: item.flavor,
+      quantity: 1,
+    };
+    this.cartService.addItem(newItem);
+    // send to cart page
+    this.router.navigate(['/payment']);
   }
 }

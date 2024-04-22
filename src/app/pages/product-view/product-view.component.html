@@ -11,7 +11,7 @@
     <p class="exp">Expires: {{ data.expireDate }}</p>
     <div class="d-flex gap-4">
       <button (click)="addToCart(data)" class="CartBtn">Add to cart</button>
-      <button class="BuyBtn">Buy Now</button>
+      <button (click)="buyNow(data)" class="BuyBtn">Buy Now</button>
     </div>
     <p class="description">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates modi

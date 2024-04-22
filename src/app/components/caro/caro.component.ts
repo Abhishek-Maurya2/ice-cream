@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CaroComponent {
   activePanel: string;
-  panels = ['French Polynesia', 'Maldives', 'Cambodia', 'Hawaii', 'Bora Bora'];
+  panels = ['a', 'b', 'c', 'd', 'e'];
   currentIndex = 0;
 
   constructor(private sharedService: SharedService, private router: Router) {
@@ -25,7 +25,7 @@ export class CaroComponent {
         this.currentIndex = 0;
       }
       this.activePanel = this.panels[this.currentIndex];
-    }, 7000);
+    }, 3000);
   }
 
   onLinkClick(data: any) {
